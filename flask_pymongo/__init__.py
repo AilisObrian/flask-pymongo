@@ -255,9 +255,10 @@ class PyMongo(object):
         pprint(args)
         pprint(kwargs)
         pprint(connection_cls)
+        pprint(cx.__getattr__('__all_credentials'))
         cx = connection_cls(*args, **kwargs)
         db = cx[dbname]
-        pprint(cx.__all_credentials)
+        pprint(cx.__getattr__('__all_credentials'))
 
         # if any(auth):
         #     auth_source = app.config[key('AUTH_SOURCE')]
