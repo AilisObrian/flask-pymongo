@@ -251,6 +251,10 @@ class PyMongo(object):
         if document_class is not None:
             kwargs['document_class'] = document_class
 
+        from pprint import pprint
+        pprint(args)
+        pprint(kwargs)
+        pprint(connection_cls)
         cx = connection_cls(*args, **kwargs)
         db = cx[dbname]
 
