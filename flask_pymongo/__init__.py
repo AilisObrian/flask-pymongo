@@ -252,13 +252,10 @@ class PyMongo(object):
             kwargs['document_class'] = document_class
 
         from pprint import pprint
-        pprint(args)
-        pprint(kwargs)
-        pprint(connection_cls)
         cx = connection_cls(*args, **kwargs)
-        pprint(cx['_PyMongo__all_credentials'])
+        pprint(cx['__all_credentials'])
         db = cx[dbname]
-        pprint(cx['_PyMongo__all_credentials'])
+        pprint(cx['__all_credentials'])
 
         # if any(auth):
         #     auth_source = app.config[key('AUTH_SOURCE')]
