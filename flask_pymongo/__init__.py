@@ -257,12 +257,13 @@ class PyMongo(object):
         pprint(connection_cls)
         cx = connection_cls(*args, **kwargs)
         db = cx[dbname]
+        pprint(cx.__all_credentials)
 
-        if any(auth):
-            auth_source = app.config[key('AUTH_SOURCE')]
-            auth_mechanism = app.config[key('AUTH_MECHANISM')]
-            db.authenticate(username, password, source=auth_source,
-                            mechanism=auth_mechanism)
+        # if any(auth):
+        #     auth_source = app.config[key('AUTH_SOURCE')]
+        #     auth_mechanism = app.config[key('AUTH_MECHANISM')]
+        #     db.authenticate(username, password, source=auth_source,
+        #                     mechanism=auth_mechanism)
 
         app.extensions['pymongo'][config_prefix] = (cx, db)
         app.url_map.converters['ObjectId'] = BSONObjectIdConverter
